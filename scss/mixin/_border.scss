@@ -1,0 +1,29 @@
+// using 0 at the parameter makes it a border
+// using 100% at the parameter makes it a border-botom
+
+@mixin border($top, $radius, $border-width) {
+    $border: $border-width;
+    border-radius: $radius;
+
+    // DONT CHANGE\
+    text-decoration: none;
+    position: relative;
+    box-sizing: border-box;
+    background-clip: padding-box;
+    border: solid $border transparent;
+
+    &:before {
+        background: linear-gradient(to right, #160b40, #ed5e57);
+        top: $top;
+
+        // DONT CHANGE
+        content: '';
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: -1;
+        margin: -$border;
+        border-radius: inherit;
+    }
+}
